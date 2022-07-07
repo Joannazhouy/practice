@@ -108,6 +108,10 @@ public class Solutions {
 
     }
 
+    public String reverseWord(String s){
+        return "hello";
+    }
+
 
 
 
