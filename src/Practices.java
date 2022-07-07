@@ -2,7 +2,7 @@ import java.util.*;
 
 import static java.lang.Math.min;
 
-public class Solutions {
+public class Practices {
     //Given an array of integers nums and an integer target, return indices of the two numbers such
     // that they add up to target.
     // solutions: using a hashmap
@@ -108,9 +108,42 @@ public class Solutions {
 
     }
 
+    //Reverse the character order of each word in a sentence. the order of words stays the same.
     public String reverseWord(String s){
-        return "hello";
+        //create an array of string to tokenize each word in the sentence;
+        String[] words = s.split(" ");
+        //initiate a stringbuilder for putting back all the words into one string
+        StringBuilder answer = new StringBuilder();
+        //inistate a stringbuilder for reversing the characters
+        StringBuilder reversed = new StringBuilder();
+        for (String word : words) {
+            reversed.append(word);
+            reversed.reverse();
+            answer.append(reversed + " ");
+            reversed.setLength(0);
+        }
+        return answer.toString();
     }
+
+    //find the longest common substring in a string array
+    public String prefix(String[] strings){
+        // use the first word as prefix check
+        String pre = strings[0];
+        //the length of the remaining words in the list for iteration
+        int length = strings.length;
+
+        for(int i=1; i<length; i++){
+            while(strings[i].indexOf(pre) != 0){
+                pre = pre.substring(0, pre.length()-1);
+                if (pre.isEmpty()){
+                    break;
+                }
+            }
+        }
+        return pre;
+    }
+
+
 
 
 
